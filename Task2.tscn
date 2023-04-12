@@ -1,0 +1,577 @@
+[gd_scene load_steps=27 format=3 uid="uid://cqvnirrk2aowu"]
+
+[ext_resource type="StyleBox" path="res://ButtonNormal.tres" id="1_cp3sm"]
+[ext_resource type="Script" path="res://Task2.gd" id="1_psal2"]
+[ext_resource type="StyleBox" path="res://ButtonHover.tres" id="2_tou46"]
+[ext_resource type="StyleBox" path="res://ButtonPressed.tres" id="3_jabyo"]
+[ext_resource type="StyleBox" path="res://ButtonFocus.tres" id="4_81r7x"]
+[ext_resource type="Animation" uid="uid://dv4y1h6vq6rcc" path="res://BtnMoveDown.tres" id="5_q4xxb"]
+[ext_resource type="Animation" uid="uid://bhy8xnq4pwvwv" path="res://BtnMoveUp.tres" id="6_jdswh"]
+[ext_resource type="Texture2D" uid="uid://dv2mjpfy5rlrh" path="res://assets/penguin/peng_sheet.png" id="7_ywcne"]
+[ext_resource type="Texture2D" uid="uid://d0utshxkcp0t0" path="res://assets/penguin/speech.png" id="8_ugcmp"]
+[ext_resource type="Animation" uid="uid://bjriuns50hqsm" path="res://StBtnMoveUp.tres" id="9_o1iq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mggvl"]
+bg_color = Color(0.690196, 0.666667, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(928, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["OPEN"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ToolsBG:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ToolsBorder:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ScreenReader:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["SCREEN READER"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ScreenReader:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(184, 64)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ScreenReader:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SR_btn:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(954, 55)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SR_btn:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../ScreenReader:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(776, 72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cvxn"]
+_data = {
+"MoveDown": ExtResource("5_q4xxb"),
+"MoveUp": ExtResource("6_jdswh"),
+"RESET": SubResource("2")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kivup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hu0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m6qc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpbcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pik2j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh1cq"]
+bg_color = Color(0.521569, 0.521569, 0.521569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vylau"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtgad"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4fu3"]
+bg_color = Color(0.521569, 0.521569, 0.521569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vj4k"]
+
+[sub_resource type="Animation" id="8"]
+resource_name = "MoveDown"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StoryBG:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 488), Vector2(992, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StoryBG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 32), Vector2(16, 520)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 5), Vector2(16, 495)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["CLOSE", "OPEN"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StoryBorder:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 489), Vector2(992, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StoryBorder:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 31), Vector2(16, 520)]
+}
+
+[sub_resource type="Animation" id="9"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StoryBG:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(992, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StoryBG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 520)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["OPEN"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 495)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StoryBorder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 520)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StoryBorder:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(992, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hwui"]
+_data = {
+"MoveDown": SubResource("8"),
+"MoveUp": ExtResource("9_o1iq3"),
+"RESET": SubResource("9")
+}
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_psal2")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 592.0
+color = Color(0.278431, 0.156863, 0, 1)
+
+[node name="TaskBG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 480.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskBorder" type="ReferenceRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 480.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Tools" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBG" type="ColorRect" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 1008.0
+offset_bottom = 72.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBorder" type="ReferenceRect" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 1008.0
+offset_bottom = 72.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ScreenReader" type="Label" parent="Tools"]
+visible = false
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 960.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SCREEN READER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SR_btn" type="CheckBox" parent="Tools"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 55.0
+offset_right = 978.0
+offset_bottom = 79.0
+scale = Vector2(1.25, 1.25)
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBtn" type="Button" parent="Tools"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 70.0
+offset_right = 1008.0
+offset_bottom = 97.0
+theme_override_styles/normal = ExtResource("1_cp3sm")
+theme_override_styles/hover = ExtResource("2_tou46")
+theme_override_styles/pressed = ExtResource("3_jabyo")
+theme_override_styles/disabled = ExtResource("1_cp3sm")
+theme_override_styles/focus = ExtResource("4_81r7x")
+text = "OPEN"
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsLbl" type="Label" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 16.0
+offset_right = 1008.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mggvl")
+text = "TOOLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsAnimation" type="AnimationPlayer" parent="Tools"]
+root_node = NodePath("../ToolsBtn")
+libraries = {
+"": SubResource("AnimationLibrary_0cvxn")
+}
+
+[node name="Penguin" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(891, 389)
+scale = Vector2(0.121212, 0.121212)
+texture = ExtResource("7_ywcne")
+flip_h = true
+hframes = 5
+frame = 2
+
+[node name="PenguinSpeech" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 185.0
+offset_right = 836.0
+offset_bottom = 372.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kivup")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1hu0q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0m6qc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cpbcf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pik2j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PenguinSpeech"]
+position = Vector2(172, 96.0001)
+scale = Vector2(0.183669, 0.183669)
+texture = ExtResource("8_ugcmp")
+
+[node name="Message" type="Label" parent="PenguinSpeech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.234
+offset_left = 48.0
+offset_top = 27.0
+offset_right = 193.312
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 246.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 576.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mggvl")
+text = "TASK 2 - ACCESSIBLE FORM CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Story" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 248.0
+offset_bottom = 576.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mggvl")
+text = "STORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 520.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBorder" type="ReferenceRect" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 520.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBtn" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 495.0
+offset_right = 96.0
+offset_bottom = 522.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vh1cq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vylau")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dtgad")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4fu3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vj4k")
+text = "OPEN"
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StoryBtn")
+libraries = {
+"": SubResource("AnimationLibrary_4hwui")
+}
+
+[connection signal="toggled" from="Tools/SR_btn" to="." method="_on_sr_btn_toggled"]
+[connection signal="pressed" from="Tools/ToolsBtn" to="." method="_on_ToolsBtn_pressed"]
+[connection signal="pressed" from="PenguinSpeech" to="." method="_on_PenguinSpeech_pressed"]
+[connection signal="pressed" from="StoryBtn" to="." method="_on_StoryBtn_pressed"]

@@ -1,0 +1,831 @@
+[gd_scene load_steps=58 format=3 uid="uid://c122pxopcasry"]
+
+[ext_resource type="StyleBox" path="res://ButtonNormal.tres" id="1"]
+[ext_resource type="StyleBox" path="res://ButtonHover.tres" id="2"]
+[ext_resource type="StyleBox" path="res://ButtonPressed.tres" id="3"]
+[ext_resource type="Script" path="res://Task1.gd" id="4"]
+[ext_resource type="StyleBox" path="res://ButtonFocus.tres" id="5"]
+[ext_resource type="Animation" uid="uid://dv4y1h6vq6rcc" path="res://BtnMoveDown.tres" id="6"]
+[ext_resource type="Animation" uid="uid://bhy8xnq4pwvwv" path="res://BtnMoveUp.tres" id="7"]
+[ext_resource type="Animation" uid="uid://bjriuns50hqsm" path="res://StBtnMoveUp.tres" id="8"]
+[ext_resource type="Texture2D" uid="uid://dhebgb8jjopxx" path="res://assets/car_sheet.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://ce7f7br15433q" path="res://assets/task_sheet.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dv2mjpfy5rlrh" path="res://assets/penguin/peng_sheet.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d0utshxkcp0t0" path="res://assets/penguin/speech.png" id="12"]
+[ext_resource type="Animation" path="res://CarHovered.tres" id="13"]
+[ext_resource type="Animation" path="res://RESET.tres" id="14"]
+[ext_resource type="Animation" path="res://Incorrect.tres" id="15"]
+[ext_resource type="Animation" path="res://Correct.tres" id="16"]
+[ext_resource type="VideoStream" path="res://assets/video/task1_fixalt.ogv" id="17_r1rng"]
+
+[sub_resource type="StyleBoxEmpty" id="25"]
+
+[sub_resource type="StyleBoxEmpty" id="21"]
+
+[sub_resource type="StyleBoxEmpty" id="22"]
+
+[sub_resource type="StyleBoxEmpty" id="24"]
+
+[sub_resource type="StyleBoxEmpty" id="23"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1qaf"]
+_data = {
+"CarHovered": ExtResource("13"),
+"Correct": ExtResource("16"),
+"Hovered": ExtResource("13"),
+"Incorrect": ExtResource("15"),
+"RESET": ExtResource("14")
+}
+
+[sub_resource type="StyleBoxEmpty" id="30"]
+
+[sub_resource type="StyleBoxEmpty" id="26"]
+
+[sub_resource type="StyleBoxEmpty" id="27"]
+
+[sub_resource type="StyleBoxEmpty" id="29"]
+
+[sub_resource type="StyleBoxEmpty" id="28"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny5jk"]
+_data = {
+"CarHovered": ExtResource("13"),
+"Correct": ExtResource("16"),
+"Correct 2": ExtResource("16"),
+"Incorrect": ExtResource("15"),
+"RESET": ExtResource("14")
+}
+
+[sub_resource type="StyleBoxEmpty" id="35"]
+
+[sub_resource type="StyleBoxEmpty" id="31"]
+
+[sub_resource type="StyleBoxEmpty" id="32"]
+
+[sub_resource type="StyleBoxEmpty" id="34"]
+
+[sub_resource type="StyleBoxEmpty" id="33"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgcwu"]
+_data = {
+"CarHovered": ExtResource("13"),
+"Correct": ExtResource("16"),
+"Correct 2": ExtResource("16"),
+"Incorrect": ExtResource("15"),
+"RESET": ExtResource("14")
+}
+
+[sub_resource type="StyleBoxEmpty" id="40"]
+
+[sub_resource type="StyleBoxEmpty" id="36"]
+
+[sub_resource type="StyleBoxEmpty" id="37"]
+
+[sub_resource type="StyleBoxEmpty" id="39"]
+
+[sub_resource type="StyleBoxEmpty" id="38"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jket"]
+_data = {
+"CarHovered": ExtResource("13"),
+"Correct": ExtResource("16"),
+"Incorrect": ExtResource("15"),
+"RESET": ExtResource("14")
+}
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.690196, 0.666667, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(928, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["OPEN"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ToolsBG:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ToolsBorder:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ScreenReader:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["SCREEN READER"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ScreenReader:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(184, 64)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ScreenReader:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SR_btn:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(954, 55)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SR_btn:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../ScreenReader:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(776, 72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cvxn"]
+_data = {
+"MoveDown": ExtResource("6"),
+"MoveUp": ExtResource("7"),
+"RESET": SubResource("2")
+}
+
+[sub_resource type="StyleBoxEmpty" id="45"]
+
+[sub_resource type="StyleBoxEmpty" id="41"]
+
+[sub_resource type="StyleBoxEmpty" id="42"]
+
+[sub_resource type="StyleBoxEmpty" id="44"]
+
+[sub_resource type="StyleBoxEmpty" id="43"]
+
+[sub_resource type="StyleBoxFlat" id="7"]
+bg_color = Color(0.521569, 0.521569, 0.521569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="4"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="6"]
+bg_color = Color(0.521569, 0.521569, 0.521569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxEmpty" id="5"]
+
+[sub_resource type="Animation" id="8"]
+resource_name = "MoveDown"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StoryBG:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 488), Vector2(992, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StoryBG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 32), Vector2(16, 520)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 5), Vector2(16, 495)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["CLOSE", "OPEN"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StoryBorder:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 489), Vector2(992, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StoryBorder:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 31), Vector2(16, 520)]
+}
+
+[sub_resource type="Animation" id="9"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StoryBG:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(992, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StoryBG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 520)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["OPEN"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 495)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StoryBorder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 520)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StoryBorder:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(992, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hwui"]
+_data = {
+"MoveDown": SubResource("8"),
+"MoveUp": ExtResource("8"),
+"RESET": SubResource("9")
+}
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("4")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 592.0
+color = Color(0.278431, 0.156863, 0, 1)
+
+[node name="TaskBG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 480.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskBorder" type="ReferenceRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 480.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Car1" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 320.0
+offset_bottom = 216.0
+theme_override_styles/normal = SubResource("25")
+theme_override_styles/hover = SubResource("21")
+theme_override_styles/pressed = SubResource("22")
+theme_override_styles/disabled = SubResource("24")
+theme_override_styles/focus = SubResource("23")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car1"]
+position = Vector2(128, 80)
+scale = Vector2(0.285524, 0.285524)
+texture = ExtResource("9")
+hframes = 12
+
+[node name="TaskIndicator" type="Sprite2D" parent="Car1"]
+position = Vector2(206.5, 22.5)
+scale = Vector2(0.223333, 0.223333)
+texture = ExtResource("10")
+hframes = 3
+
+[node name="CarAnimator" type="AnimationPlayer" parent="Car1"]
+libraries = {
+"": SubResource("AnimationLibrary_g1qaf")
+}
+
+[node name="SRHelper" type="ColorRect" parent="Car1"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 256.0
+offset_bottom = 162.0
+color = Color(1, 0.784314, 0, 0.501961)
+
+[node name="Car2" type="Button" parent="."]
+offset_left = 440.0
+offset_top = 56.0
+offset_right = 696.0
+offset_bottom = 216.0
+theme_override_styles/normal = SubResource("30")
+theme_override_styles/hover = SubResource("26")
+theme_override_styles/pressed = SubResource("27")
+theme_override_styles/disabled = SubResource("29")
+theme_override_styles/focus = SubResource("28")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car2"]
+position = Vector2(128, 80)
+scale = Vector2(0.285524, 0.285524)
+texture = ExtResource("9")
+hframes = 12
+frame = 1
+
+[node name="TaskIndicator" type="Sprite2D" parent="Car2"]
+position = Vector2(208, 24)
+scale = Vector2(0.223333, 0.223333)
+texture = ExtResource("10")
+hframes = 3
+
+[node name="CarAnimator" type="AnimationPlayer" parent="Car2"]
+libraries = {
+"": SubResource("AnimationLibrary_ny5jk")
+}
+
+[node name="SRHelper" type="ColorRect" parent="Car2"]
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 257.0
+offset_bottom = 160.5
+color = Color(1, 0.784314, 0, 0.564706)
+
+[node name="Car3" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 424.0
+theme_override_styles/normal = SubResource("35")
+theme_override_styles/hover = SubResource("31")
+theme_override_styles/pressed = SubResource("32")
+theme_override_styles/disabled = SubResource("34")
+theme_override_styles/focus = SubResource("33")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car3"]
+position = Vector2(128, 88)
+scale = Vector2(0.285524, 0.285524)
+texture = ExtResource("9")
+hframes = 12
+frame = 2
+
+[node name="TaskIndicator" type="Sprite2D" parent="Car3"]
+position = Vector2(208, 32)
+scale = Vector2(0.223333, 0.223333)
+texture = ExtResource("10")
+hframes = 3
+
+[node name="CarAnimator" type="AnimationPlayer" parent="Car3"]
+libraries = {
+"": SubResource("AnimationLibrary_xgcwu")
+}
+
+[node name="SRHelper" type="ColorRect" parent="Car3"]
+visible = false
+layout_mode = 0
+offset_left = -2.5
+offset_top = 2.0
+offset_right = 257.5
+offset_bottom = 167.0
+color = Color(1, 0.784314, 0, 0.564706)
+
+[node name="Car4" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 256.0
+offset_right = 688.0
+offset_bottom = 432.0
+theme_override_styles/normal = SubResource("40")
+theme_override_styles/hover = SubResource("36")
+theme_override_styles/pressed = SubResource("37")
+theme_override_styles/disabled = SubResource("39")
+theme_override_styles/focus = SubResource("38")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car4"]
+position = Vector2(133.5, 88)
+scale = Vector2(0.285524, 0.285524)
+texture = ExtResource("9")
+hframes = 12
+frame = 3
+
+[node name="TaskIndicator" type="Sprite2D" parent="Car4"]
+position = Vector2(208, 32)
+scale = Vector2(0.223333, 0.223333)
+texture = ExtResource("10")
+hframes = 3
+
+[node name="CarAnimator" type="AnimationPlayer" parent="Car4"]
+libraries = {
+"": SubResource("AnimationLibrary_7jket")
+}
+
+[node name="SRHelper" type="ColorRect" parent="Car4"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.5
+offset_right = 263.0
+offset_bottom = 168.5
+color = Color(1, 0.784314, 0, 0.564706)
+
+[node name="Tools" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBG" type="ColorRect" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 1008.0
+offset_bottom = 72.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBorder" type="ReferenceRect" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 1008.0
+offset_bottom = 72.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ScreenReader" type="Label" parent="Tools"]
+visible = false
+layout_mode = 0
+offset_left = 776.0
+offset_top = 72.0
+offset_right = 960.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SCREEN READER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SR_btn" type="CheckBox" parent="Tools"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 55.0
+offset_right = 978.0
+offset_bottom = 79.0
+scale = Vector2(1.25, 1.25)
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsBtn" type="Button" parent="Tools"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 70.0
+offset_right = 1008.0
+offset_bottom = 97.0
+theme_override_styles/normal = ExtResource("1")
+theme_override_styles/hover = ExtResource("2")
+theme_override_styles/pressed = ExtResource("3")
+theme_override_styles/disabled = ExtResource("1")
+theme_override_styles/focus = ExtResource("5")
+text = "OPEN"
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsLbl" type="Label" parent="Tools"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 16.0
+offset_right = 1008.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("1")
+text = "TOOLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolsAnimation" type="AnimationPlayer" parent="Tools"]
+root_node = NodePath("../ToolsBtn")
+libraries = {
+"": SubResource("AnimationLibrary_0cvxn")
+}
+
+[node name="Penguin" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(891, 389)
+scale = Vector2(0.121212, 0.121212)
+texture = ExtResource("11")
+flip_h = true
+hframes = 5
+frame = 2
+
+[node name="PenguinSpeech" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 185.0
+offset_right = 836.0
+offset_bottom = 372.0
+theme_override_styles/normal = SubResource("45")
+theme_override_styles/hover = SubResource("41")
+theme_override_styles/pressed = SubResource("42")
+theme_override_styles/disabled = SubResource("44")
+theme_override_styles/focus = SubResource("43")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PenguinSpeech"]
+position = Vector2(172, 96.0001)
+scale = Vector2(0.183669, 0.183669)
+texture = ExtResource("12")
+
+[node name="Message" type="Label" parent="PenguinSpeech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.234
+offset_left = 48.0
+offset_top = 27.0
+offset_right = 193.312
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 246.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 576.0
+theme_override_styles/normal = SubResource("1")
+text = "TASK 1 - OBJECT IDENTIFICATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Story" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 248.0
+offset_bottom = 576.0
+theme_override_styles/normal = SubResource("1")
+text = "STORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 520.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBorder" type="ReferenceRect" parent="."]
+offset_left = 16.0
+offset_top = 520.0
+offset_right = 1008.0
+offset_bottom = 520.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryBtn" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 495.0
+offset_right = 96.0
+offset_bottom = 522.0
+theme_override_styles/normal = SubResource("7")
+theme_override_styles/hover = SubResource("3")
+theme_override_styles/pressed = SubResource("4")
+theme_override_styles/disabled = SubResource("6")
+theme_override_styles/focus = SubResource("5")
+text = "OPEN"
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StoryBtn")
+libraries = {
+"": SubResource("AnimationLibrary_4hwui")
+}
+
+[node name="Task1_Fix" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = 48.0
+offset_top = 156.0
+offset_right = 1632.0
+offset_bottom = 428.0
+scale = Vector2(0.426, 0.426)
+stream = ExtResource("17_r1rng")
+
+[connection signal="mouse_entered" from="Car1" to="." method="_on_Car1_mouse_entered"]
+[connection signal="mouse_exited" from="Car1" to="." method="_on_Car1_mouse_exited"]
+[connection signal="pressed" from="Car1" to="." method="_on_Car1_pressed"]
+[connection signal="mouse_entered" from="Car2" to="." method="_on_Car2_mouse_entered"]
+[connection signal="mouse_exited" from="Car2" to="." method="_on_Car2_mouse_exited"]
+[connection signal="pressed" from="Car2" to="." method="_on_Car2_pressed"]
+[connection signal="mouse_entered" from="Car3" to="." method="_on_Car3_mouse_entered"]
+[connection signal="mouse_exited" from="Car3" to="." method="_on_Car3_mouse_exited"]
+[connection signal="pressed" from="Car3" to="." method="_on_Car3_pressed"]
+[connection signal="mouse_entered" from="Car4" to="." method="_on_Car4_mouse_entered"]
+[connection signal="mouse_exited" from="Car4" to="." method="_on_Car4_mouse_exited"]
+[connection signal="pressed" from="Car4" to="." method="_on_Car4_pressed"]
+[connection signal="toggled" from="Tools/SR_btn" to="." method="_on_sr_btn_toggled"]
+[connection signal="pressed" from="Tools/ToolsBtn" to="." method="_on_ToolsBtn_pressed"]
+[connection signal="pressed" from="PenguinSpeech" to="." method="_on_PenguinSpeech_pressed"]
+[connection signal="pressed" from="StoryBtn" to="." method="_on_StoryBtn_pressed"]
