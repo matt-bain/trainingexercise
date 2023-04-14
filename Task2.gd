@@ -2,7 +2,6 @@ extends Node2D
 
 var tools_open = false
 var story_open = false
-var cars = []
 var penguin_speech = null
 var penguin_file = "res://assets/script/penguin_lines"
 var penguin_counter = 0
@@ -56,42 +55,6 @@ func _on_StoryBtn_pressed():
 	button.disabled = false
 	story_open = !story_open
 	
-func spawn_cars():
-	for car in cars:
-		car.visible = true
-	
-func car_hovered(car):
-	if !task_frozen:
-		var animator = car.get_node("CarAnimator")
-		animator.play("CarHovered")
-	
-func car_exited(car):
-	if !task_frozen:
-		var animator = car.get_node("CarAnimator")
-		animator.play("RESET")
-
-func car_pressed(car):
-	if !task_frozen:
-		var sprite = car.get_node("Sprite2D")
-		var animation = car.get_node("CarAnimator")
-		var penguin = get_node("Penguin")
-	
-		for btn in cars:
-			btn.disabled = true
-		if sprite.frame % 4 == 0:
-			animation.play("Correct")
-			talk_penguin(4)
-			task_frozen = true
-		else:
-			animation.play("Incorrect")
-			talk_penguin(5)
-		await animation.animation_finished
-		penguin.frame = 0
-		for btn in cars:
-			btn.disabled = false
-		
-		animation.play("RESET")
-	
 func talk_penguin(line = 0):
 	var msg_box = penguin_speech.get_node("Message")
 	var penguin = get_node("Penguin")
@@ -117,38 +80,6 @@ func _on_PenguinSpeech_pressed():
 		talk_penguin()
 	else:
 		silence_penguin()
-
-func _on_Car1_mouse_entered():
-	if !cars[0].disabled:
-		car_hovered(cars[0])
-	
-func _on_Car1_mouse_exited():
-	if !cars[0].disabled:
-		car_exited(cars[0])
-
-func _on_Car2_mouse_entered():
-	if !cars[1].disabled:
-		car_hovered(cars[1])
-
-func _on_Car2_mouse_exited():
-	if !cars[1].disabled:
-		car_exited(cars[1])
-
-func _on_Car3_mouse_entered():
-	if !cars[2].disabled:
-		car_hovered(cars[2])
-
-func _on_Car3_mouse_exited():
-	if !cars[2].disabled:
-		car_exited(cars[2])
-
-func _on_Car4_mouse_entered():
-	if !cars[3].disabled:
-		car_hovered(cars[3])
-
-func _on_Car4_mouse_exited():
-	if !cars[3].disabled:
-		car_exited(cars[3])
 		
 func _on_sr_btn_toggled(button_pressed):
 	if button_pressed && !sr_on:
@@ -156,3 +87,22 @@ func _on_sr_btn_toggled(button_pressed):
 	else:
 		stopped = true
 		DisplayServer.tts_stop()
+
+func _on_submit_button_pressed():
+	var first = get_node("TaskContainer/fn_box")
+	var sur = get_node("TaskContainer/sn_box")
+	var err = get_node("TaskContainer/err_label")
+	
+	var group = get_node("TaskContainer/male_cb").button_group
+	
+	if first.text == "":
+		err.text = "Invalid Input: Enter a first name"
+	elif sur.text == "":
+		err.text = "Invalid Input: Enter a surname"
+	elif group.get_pressed_button() == null:
+		err.text = "Invalid Input: Select a gender"
+	else:
+		err.text = "Success!"
+		err.set("theme_override_colors/font_color", Color(0.29,0.59,0.0))
+		
+		

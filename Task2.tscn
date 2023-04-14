@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqvnirrk2aowu"]
+[gd_scene load_steps=30 format=3 uid="uid://cqvnirrk2aowu"]
 
 [ext_resource type="StyleBox" path="res://ButtonNormal.tres" id="1_cp3sm"]
 [ext_resource type="Script" path="res://Task2.gd" id="1_psal2"]
+[ext_resource type="Shader" path="res://Task2.gdshader" id="2_5hk43"]
 [ext_resource type="StyleBox" path="res://ButtonHover.tres" id="2_tou46"]
+[ext_resource type="ButtonGroup" uid="uid://l2fymalya7w0" path="res://gender_radio.tres" id="2_yg6p7"]
 [ext_resource type="StyleBox" path="res://ButtonPressed.tres" id="3_jabyo"]
 [ext_resource type="StyleBox" path="res://ButtonFocus.tres" id="4_81r7x"]
 [ext_resource type="Animation" uid="uid://dv4y1h6vq6rcc" path="res://BtnMoveDown.tres" id="5_q4xxb"]
@@ -10,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://dv2mjpfy5rlrh" path="res://assets/penguin/peng_sheet.png" id="7_ywcne"]
 [ext_resource type="Texture2D" uid="uid://d0utshxkcp0t0" path="res://assets/penguin/speech.png" id="8_ugcmp"]
 [ext_resource type="Animation" uid="uid://bjriuns50hqsm" path="res://StBtnMoveUp.tres" id="9_o1iq3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdbcw"]
+shader = ExtResource("2_5hk43")
+shader_parameter/blur_amount = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mggvl"]
 bg_color = Color(0.690196, 0.666667, 0.666667, 1)
@@ -372,6 +378,7 @@ script = ExtResource("1_psal2")
 offset_right = 1024.0
 offset_bottom = 592.0
 color = Color(0.278431, 0.156863, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TaskBG" type="ColorRect" parent="."]
 offset_left = 16.0
@@ -388,6 +395,167 @@ offset_bottom = 480.0
 border_color = Color(0, 0, 0, 1)
 border_width = 2.0
 editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskContainer" type="ReferenceRect" parent="."]
+offset_left = 16.0
+offset_top = 15.5
+offset_right = 760.0
+offset_bottom = 479.5
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="err_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 47.0
+offset_right = 585.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "AYYYY LOOK AT ME I'M AN ERROR heheheheh"
+metadata/_edit_use_anchors_ = true
+
+[node name="fn_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 89.5
+offset_right = 255.0
+offset_bottom = 116.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "First Name: "
+metadata/_edit_use_anchors_ = true
+
+[node name="fn_box" type="TextEdit" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 86.5
+offset_right = 577.0
+offset_bottom = 121.5
+scroll_fit_content_height = true
+metadata/_edit_use_anchors_ = true
+
+[node name="sn_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 144.0
+offset_right = 255.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Surname: "
+metadata/_edit_use_anchors_ = true
+
+[node name="sn_box" type="TextEdit" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 256.5
+offset_top = 139.5
+offset_right = 576.5
+offset_bottom = 174.5
+scroll_fit_content_height = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 200.5
+offset_right = 375.0
+offset_bottom = 336.5
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 189.5
+offset_right = 240.0
+offset_bottom = 213.5
+metadata/_edit_use_anchors_ = true
+
+[node name="gender_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 188.0
+offset_right = 232.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Gender"
+metadata/_edit_use_anchors_ = true
+
+[node name="male_cb" type="CheckBox" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 170.5
+offset_top = 219.5
+offset_right = 194.5
+offset_bottom = 243.5
+button_group = ExtResource("2_yg6p7")
+metadata/_edit_use_anchors_ = true
+
+[node name="male_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 219.5
+offset_right = 258.0
+offset_bottom = 246.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Male"
+metadata/_edit_use_anchors_ = true
+
+[node name="female_cb" type="CheckBox" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 170.5
+offset_top = 256.5
+offset_right = 194.5
+offset_bottom = 280.5
+button_group = ExtResource("2_yg6p7")
+metadata/_edit_use_anchors_ = true
+
+[node name="female_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 256.5
+offset_right = 258.0
+offset_bottom = 283.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Female"
+metadata/_edit_use_anchors_ = true
+
+[node name="other_cb" type="CheckBox" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 170.5
+offset_top = 293.5
+offset_right = 194.5
+offset_bottom = 317.5
+button_group = ExtResource("2_yg6p7")
+metadata/_edit_use_anchors_ = true
+
+[node name="other_label" type="Label" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 293.5
+offset_right = 258.0
+offset_bottom = 320.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Other"
+metadata/_edit_use_anchors_ = true
+
+[node name="submit_button" type="Button" parent="TaskContainer"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 355.5
+offset_right = 262.0
+offset_bottom = 388.5
+text = "SUBMIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blur" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_gdbcw")
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 480.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Tools" type="Control" parent="."]
@@ -478,7 +646,6 @@ scale = Vector2(0.121212, 0.121212)
 texture = ExtResource("7_ywcne")
 flip_h = true
 hframes = 5
-frame = 2
 
 [node name="PenguinSpeech" type="Button" parent="."]
 offset_left = 504.0
@@ -571,6 +738,7 @@ libraries = {
 "": SubResource("AnimationLibrary_4hwui")
 }
 
+[connection signal="pressed" from="TaskContainer/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="toggled" from="Tools/SR_btn" to="." method="_on_sr_btn_toggled"]
 [connection signal="pressed" from="Tools/ToolsBtn" to="." method="_on_ToolsBtn_pressed"]
 [connection signal="pressed" from="PenguinSpeech" to="." method="_on_PenguinSpeech_pressed"]

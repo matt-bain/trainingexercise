@@ -26,3 +26,24 @@ Let's fix this alt text!|4
 Okay! Now turn on the screen reader again!|2
 That's now far clearer for you and your user to understand what they're doing on your web application!|0
 Doing this one simple step will instantly make your site easier to navigate for all users.|0
+In this second task, we're going to have a look at web forms.|0
+We all know them. We've all used them. They are a staple of any signup page|0
+And they look a little something like this!|1
+It looks straight-forward, right?|1
+Fill in the form and then hit submit when you're done!|0
+Read the error and try again.|3
+Perfect!|2
+This task wasn't too tough as you had the visual clues you needed to understand the form.|0
+You could see clear labels indicating what each box and button was for.|1
+Let's take a look at this task through a different pair of eyes!|0
+This is now how a user with cataracts would see the same form.|1
+It's nearly impossible to make out what the labels say and understand what the form elements do.|4
+Cataracts fog over the front of the eye and blur either part or the entirety of the person's vision.|0
+Depending on the size of the cataract, this can either be a small amount, or completely distort their vision.|0
+Cataracts often start as blurred vision and can lead to total blindness.|0
+A user with cataracts would use this form using a screen reader.|0
+Let's open up the screen reader again and make sense of this form!|2
+Once again, this developer has not been thinking about accessibility when building this form.|4
+As you saw, the screen reader hopped straight to the text boxes and the buttons without reading the labels.|0
+This means the form controls must not be linked within the code!|4
+Let's have a look at how to fix this!|2
