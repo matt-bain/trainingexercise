@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cqvnirrk2aowu"]
+[gd_scene load_steps=40 format=3 uid="uid://cqvnirrk2aowu"]
 
 [ext_resource type="StyleBox" uid="uid://7uul88qs5s03" path="res://ButtonNormal.tres" id="1_cp3sm"]
 [ext_resource type="Script" path="res://Task2.gd" id="1_psal2"]
@@ -14,6 +14,23 @@
 [ext_resource type="Animation" uid="uid://bjriuns50hqsm" path="res://StBtnMoveUp.tres" id="9_o1iq3"]
 [ext_resource type="Texture2D" uid="uid://b51vg4mdsp1ux" path="res://assets/personas/barbara_sprite.png" id="10_fy2rn"]
 [ext_resource type="Texture2D" uid="uid://iwlu2ilfxmx2" path="res://assets/personas/cataracts.jpg" id="12_37j8a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4xw4"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_371nq"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdbcw"]
 shader = ExtResource("2_5hk43")
@@ -155,6 +172,128 @@ _data = {
 "MoveDown": ExtResource("5_q4xxb"),
 "MoveUp": ExtResource("6_jdswh"),
 "RESET": SubResource("2")
+}
+
+[sub_resource type="Animation" id="Animation_42sxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-138, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kgab5"]
+resource_name = "enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-142, 360), Vector2(170, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_k8g43"]
+resource_name = "exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(170, 360), Vector2(-146, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_8liik"]
+resource_name = "join"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(170, 360), Vector2(838, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_d2te3"]
+resource_name = "leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(838, 360), Vector2(170, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5i5oe"]
+_data = {
+"RESET": SubResource("Animation_42sxo"),
+"enter": SubResource("Animation_kgab5"),
+"exit": SubResource("Animation_k8g43"),
+"join": SubResource("Animation_8liik"),
+"leave": SubResource("Animation_d2te3")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kivup"]
@@ -406,7 +545,17 @@ offset_right = 760.0
 offset_bottom = 479.5
 border_color = Color(0, 0, 0, 1)
 border_width = 2.0
+editor_only = false
 metadata/_edit_use_anchors_ = true
+
+[node name="sr_help" type="ColorRect" parent="TaskContainer"]
+visible = false
+layout_mode = 0
+offset_left = 155.0
+offset_top = 350.0
+offset_right = 267.0
+offset_bottom = 394.0
+color = Color(1, 0.784314, 0, 0.501961)
 
 [node name="err_label" type="Label" parent="TaskContainer"]
 layout_mode = 0
@@ -433,6 +582,17 @@ offset_left = 257.0
 offset_top = 86.5
 offset_right = 577.0
 offset_bottom = 121.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4xw4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h4xw4")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_h4xw4")
+editable = false
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
 scroll_fit_content_height = true
 metadata/_edit_use_anchors_ = true
 
@@ -452,6 +612,17 @@ offset_left = 256.5
 offset_top = 139.5
 offset_right = 576.5
 offset_bottom = 174.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4xw4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h4xw4")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_h4xw4")
+editable = false
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
 scroll_fit_content_height = true
 metadata/_edit_use_anchors_ = true
 
@@ -466,21 +637,17 @@ border_width = 2.0
 editor_only = false
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="TaskContainer"]
-layout_mode = 0
-offset_left = 166.0
-offset_top = 189.5
-offset_right = 240.0
-offset_bottom = 213.5
-metadata/_edit_use_anchors_ = true
-
 [node name="gender_label" type="Label" parent="TaskContainer"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00873656
+anchor_right = 0.00201613
 offset_left = 174.0
 offset_top = 188.0
 offset_right = 232.0
 offset_bottom = 215.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_371nq")
 text = "Gender"
 metadata/_edit_use_anchors_ = true
 
@@ -490,17 +657,17 @@ offset_left = 170.5
 offset_top = 219.5
 offset_right = 194.5
 offset_bottom = 243.5
-button_group = ExtResource("2_yg6p7")
-metadata/_edit_use_anchors_ = true
-
-[node name="male_label" type="Label" parent="TaskContainer"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 219.5
-offset_right = 258.0
-offset_bottom = 246.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Male"
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+disabled = true
+button_group = ExtResource("2_yg6p7")
+text = "   Male"
+alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="female_cb" type="CheckBox" parent="TaskContainer"]
@@ -509,17 +676,17 @@ offset_left = 170.5
 offset_top = 256.5
 offset_right = 194.5
 offset_bottom = 280.5
-button_group = ExtResource("2_yg6p7")
-metadata/_edit_use_anchors_ = true
-
-[node name="female_label" type="Label" parent="TaskContainer"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 256.5
-offset_right = 258.0
-offset_bottom = 283.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Female"
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+disabled = true
+button_group = ExtResource("2_yg6p7")
+text = "   Female"
+alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="other_cb" type="CheckBox" parent="TaskContainer"]
@@ -528,17 +695,17 @@ offset_left = 170.5
 offset_top = 293.5
 offset_right = 194.5
 offset_bottom = 317.5
-button_group = ExtResource("2_yg6p7")
-metadata/_edit_use_anchors_ = true
-
-[node name="other_label" type="Label" parent="TaskContainer"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 293.5
-offset_right = 258.0
-offset_bottom = 320.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Other"
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+disabled = true
+button_group = ExtResource("2_yg6p7")
+text = "   Other"
+alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="submit_button" type="Button" parent="TaskContainer"]
@@ -547,6 +714,14 @@ offset_left = 160.0
 offset_top = 355.5
 offset_right = 262.0
 offset_bottom = 388.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+disabled = true
 text = "SUBMIT"
 metadata/_edit_use_anchors_ = true
 
@@ -641,6 +816,7 @@ libraries = {
 }
 
 [node name="fade_bg" type="ColorRect" parent="."]
+visible = false
 offset_left = -1.52588e-05
 offset_right = 1024.0
 offset_bottom = 592.0
@@ -648,11 +824,17 @@ color = Color(0, 0, 0, 0.866667)
 metadata/_edit_use_anchors_ = true
 
 [node name="Persona" type="Sprite2D" parent="."]
-position = Vector2(157, 360)
+position = Vector2(-138, 360)
 scale = Vector2(0.229977, 0.229977)
 texture = ExtResource("10_fy2rn")
 
+[node name="PersonaAnimator" type="AnimationPlayer" parent="Persona"]
+libraries = {
+"": SubResource("AnimationLibrary_5i5oe")
+}
+
 [node name="PersonaSpeech" type="Button" parent="."]
+visible = false
 offset_left = 206.5
 offset_top = 185.0
 offset_right = 538.5
@@ -910,5 +1092,6 @@ libraries = {
 [connection signal="pressed" from="TaskContainer/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="toggled" from="Tools/SR_btn" to="." method="_on_sr_btn_toggled"]
 [connection signal="pressed" from="Tools/ToolsBtn" to="." method="_on_ToolsBtn_pressed"]
-[connection signal="pressed" from="PenguinSpeech" to="." method="_on_PenguinSpeech_pressed"]
+[connection signal="pressed" from="PersonaSpeech" to="." method="_on_Speech_pressed"]
+[connection signal="pressed" from="PenguinSpeech" to="." method="_on_Speech_pressed"]
 [connection signal="pressed" from="StoryBtn" to="." method="_on_StoryBtn_pressed"]

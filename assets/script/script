@@ -11,7 +11,7 @@
 *This is Michael!|1
 ^Hello!|0
 *Tell them a bit about yourself Michael.|2
-^I suffer from protonopia. It's a form of colour blindness. This means that only two of the three channels of information to my eye are working properly.|0
+^I'm 47 and I have protonopia. It's a form of colour blindness meaning only two of the three channels of information to my eye function correctly.|0
 ^The red channel is entirely cut out, causing objects that you would see as green or red to appear yellow to me.|0
 ^OPEN the STORY tab to read more about my life and get to know me!|0
 *I've now randomised the order of the cars and displayed them as someone like Michael, with protonopia, would see them.|1
@@ -45,14 +45,29 @@
 *This task wasn't too tough as you had the visual clues you needed to understand the form.|0
 *You could see clear labels indicating what each box and button was for.|1
 *Let's take a look at this task through a different pair of eyes!|0
-*This is now how a user with cataracts would see the same form.|1
+*Here's Barbara to give her view of this form!|1
+^Hello there! Lovely to meet you.|0
+*Tell them about yourself, Barbara!|2
+^Well I'm Barbara and I've developed cataracts. This means I have a small fog over the front of my eye, causing my vision to blur.|0
+^This started off relatively small with only a small amount of blurring but, through the years, my vision has become increasingly blurry.|0
+^This hasn't stopped me living my life though! OPEN my STORY to get to know me better!|0
+*This is now how Barbara would see the same form you just filled in.|1
 *It's nearly impossible to make out what the labels say and understand what the form elements do.|4
-*Cataracts fog over the front of the eye and blur either part or the entirety of the person's vision.|0
-*Depending on the size of the cataract, this can either be a small amount, or completely distort their vision.|0
-*Cataracts often start as blurred vision and can lead to total blindness.|0
-*A user with cataracts would use this form using a screen reader.|0
-*Let's open up the screen reader again and make sense of this form!|2
-*Once again, this developer has not been thinking about accessibility when building this form.|4
-*As you saw, the screen reader hopped straight to the text boxes and the buttons without reading the labels.|0
+*How would you use this form Barbara?|0
+^Like all visually impaired users who still have good hearing, I would use a screen reader.|0
+^Open the TOOLS once again to access the screen reader!|0
+*Let's press play on the screen reader again and make sense of this form!|2
+*Sorry Barbara. Once again, this developer has not been thinking about accessibility when building this form.|4
+^I'm not sure what I am supposed to be doing with this form? Sounds like a few text boxes and buttons but how do I use them?|0
+*As you saw, the screen reader hopped straight to the text boxes and the buttons without reading any of the labels.|0
+*To someone like Barbara, this is impossible to interpret.|4
 *This means the form controls must not be linked within the code!|4
 *Let's have a look at how to fix this!|2
+*Press the play button again and hear what has changed.|1
+*As you heard, linking the form elements to the labels allows the screen reader to understand which box and button belongs to which element.|0
+^Now I can easily navigate this form! Thanks for fixing it.|0
+^Normally, when I come across forms that I cannot understand, I will find a different site to use offering the same service.|0
+*See how a fix so simple could cost you important customers? Hopefully you'll keep Barbara in mind the next time you are designing a form.|4
+*Thanks for all your help Barbara!|2
+^It's been a pleasure _____. Goodbye!|0
+*This ends the training exercise. Please press CLOSE to exit the application when you are ready.|0
