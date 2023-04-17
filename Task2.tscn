@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cqvnirrk2aowu"]
+[gd_scene load_steps=45 format=3 uid="uid://cqvnirrk2aowu"]
 
 [ext_resource type="StyleBox" uid="uid://7uul88qs5s03" path="res://ButtonNormal.tres" id="1_cp3sm"]
 [ext_resource type="Script" path="res://Task2.gd" id="1_psal2"]
@@ -7,6 +7,8 @@
 [ext_resource type="ButtonGroup" uid="uid://l2fymalya7w0" path="res://gender_radio.tres" id="2_yg6p7"]
 [ext_resource type="StyleBox" path="res://ButtonPressed.tres" id="3_jabyo"]
 [ext_resource type="StyleBox" path="res://ButtonFocus.tres" id="4_81r7x"]
+[ext_resource type="Texture2D" uid="uid://bccs4q18no4il" path="res://pause.png" id="4_jry55"]
+[ext_resource type="Texture2D" uid="uid://bcfpg26xhggs0" path="res://play.png" id="5_4ce3w"]
 [ext_resource type="Animation" uid="uid://dv4y1h6vq6rcc" path="res://BtnMoveDown.tres" id="5_q4xxb"]
 [ext_resource type="Animation" uid="uid://bhy8xnq4pwvwv" path="res://BtnMoveUp.tres" id="6_jdswh"]
 [ext_resource type="Texture2D" uid="uid://dv2mjpfy5rlrh" path="res://assets/penguin/peng_sheet.png" id="7_ywcne"]
@@ -14,6 +16,7 @@
 [ext_resource type="Animation" uid="uid://bjriuns50hqsm" path="res://StBtnMoveUp.tres" id="9_o1iq3"]
 [ext_resource type="Texture2D" uid="uid://b51vg4mdsp1ux" path="res://assets/personas/barbara_sprite.png" id="10_fy2rn"]
 [ext_resource type="Texture2D" uid="uid://iwlu2ilfxmx2" path="res://assets/personas/cataracts.jpg" id="12_37j8a"]
+[ext_resource type="VideoStream" path="res://assets/video/task2_fix.ogv" id="17_kajpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4xw4"]
 bg_color = Color(1, 1, 1, 0)
@@ -36,7 +39,9 @@ bg_color = Color(1, 1, 1, 1)
 shader = ExtResource("2_5hk43")
 shader_parameter/blur_amount = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mggvl"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1kfh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lugmn"]
 bg_color = Color(0.690196, 0.666667, 0.666667, 1)
 border_width_left = 2
 border_width_top = 2
@@ -306,6 +311,14 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pik2j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mggvl"]
+bg_color = Color(0.690196, 0.666667, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh1cq"]
 bg_color = Color(0.521569, 0.521569, 0.521569, 1)
 border_width_left = 2
@@ -551,10 +564,10 @@ metadata/_edit_use_anchors_ = true
 [node name="sr_help" type="ColorRect" parent="TaskContainer"]
 visible = false
 layout_mode = 0
-offset_left = 155.0
-offset_top = 350.0
-offset_right = 267.0
-offset_bottom = 394.0
+offset_left = 165.0
+offset_top = 216.0
+offset_right = 368.0
+offset_bottom = 329.0
 color = Color(1, 0.784314, 0, 0.501961)
 
 [node name="err_label" type="Label" parent="TaskContainer"]
@@ -592,6 +605,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_h4xw4")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_h4xw4")
 editable = false
 context_menu_enabled = false
+drag_and_drop_selection_enabled = false
 middle_mouse_paste_enabled = false
 scroll_fit_content_height = true
 metadata/_edit_use_anchors_ = true
@@ -622,6 +636,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_h4xw4")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_h4xw4")
 editable = false
 context_menu_enabled = false
+drag_and_drop_selection_enabled = false
 middle_mouse_paste_enabled = false
 scroll_fit_content_height = true
 metadata/_edit_use_anchors_ = true
@@ -774,12 +789,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SR_btn" type="CheckBox" parent="Tools"]
-layout_mode = 0
-offset_left = 954.0
-offset_top = 55.0
-offset_right = 978.0
-offset_bottom = 79.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0624985
+anchor_top = -0.112501
+anchor_right = -0.0624985
+anchor_bottom = -0.112501
+offset_left = 956.5
+offset_top = 59.5
+offset_right = 988.5
+offset_bottom = 91.5001
 scale = Vector2(1.25, 1.25)
+theme_override_icons/checked = ExtResource("4_jry55")
+theme_override_icons/checked_disabled = ExtResource("4_jry55")
+theme_override_icons/unchecked = ExtResource("5_4ce3w")
+theme_override_icons/unchecked_disabled = ExtResource("5_4ce3w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c1kfh")
 disabled = true
 metadata/_edit_use_anchors_ = true
 
@@ -789,6 +814,13 @@ offset_left = 928.0
 offset_top = 70.0
 offset_right = 1008.0
 offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = ExtResource("1_cp3sm")
 theme_override_styles/hover = ExtResource("2_tou46")
 theme_override_styles/pressed = ExtResource("3_jabyo")
@@ -803,7 +835,8 @@ offset_left = 776.0
 offset_top = 16.0
 offset_right = 1008.0
 offset_bottom = 72.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mggvl")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_lugmn")
 text = "TOOLS"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -878,6 +911,7 @@ flip_h = true
 hframes = 5
 
 [node name="PenguinSpeech" type="Button" parent="."]
+visible = false
 offset_left = 504.0
 offset_top = 185.0
 offset_right = 836.0
@@ -1088,6 +1122,15 @@ root_node = NodePath("../StoryBtn")
 libraries = {
 "": SubResource("AnimationLibrary_4hwui")
 }
+
+[node name="Task2_Fix" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = 48.5
+offset_top = 65.5
+offset_right = 1648.5
+offset_bottom = 849.5
+scale = Vector2(0.426, 0.426)
+stream = ExtResource("17_kajpx")
 
 [connection signal="pressed" from="TaskContainer/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="toggled" from="Tools/SR_btn" to="." method="_on_sr_btn_toggled"]

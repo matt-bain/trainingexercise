@@ -213,6 +213,8 @@ func talk(line = 0):
 			persona_ani.play("leave")
 	elif script_counter == 36:
 		persona_ani.play("exit")
+	elif script_counter == 37:
+		get_tree().change_scene_to_file("res://Task2.tscn")
 	
 	if script_counter != 26 || sr_clicked:
 		if script_counter != 31 || sr_clicked:

@@ -1,5 +1,5 @@
 *Hello! Welcome to this training exercise in accessibility for development!|1
-*My name is _____ and I will be with you throughout this entire exercise!|1
+*My name is Pixelle and I will be with you throughout this entire exercise!|1
 *We will start things off with a simple game of find the object.|0
 *I would like you to find and click on the RED car within this space! (click this speech bubble to close the dialogue)|0
 *Spot on! That was the RED car!|2
@@ -34,7 +34,7 @@
 ^Oh wow! That made this task a breeze for me - just as it was for you the first time! Thank you so much for fixing the alt text!|2
 ^With small changes like this making the page more accessible, you can ensure users such as myself keep coming back to your website!|2
 *Thank you for helping out, Michael! It's been really useful to chat to you.|2
-*That's the end of task one! You can move on to the second task by clicking the next task button or you can open up the STORY tab and have another read about Michael's life|1
+*That's the end of task one! You can move on to the second task by clicking this speech bubble or you can open up the STORY tab and have another read about Michael's life|1
 *In this second task, we're going to have a look at web forms.|0
 *We all know them. We've all used them. They are a staple of any signup page|0
 *And they look a little something like this!|1
@@ -58,16 +58,17 @@
 ^Open the TOOLS once again to access the screen reader!|0
 *Let's press play on the screen reader again and make sense of this form!|2
 *Sorry Barbara. Once again, this developer has not been thinking about accessibility when building this form.|4
-^I'm not sure what I am supposed to be doing with this form? Sounds like a few text boxes and buttons but how do I use them?|0
+^I'm not sure what I am supposed to be doing? Looks and sounds like a few text boxes and buttons but how do I use them?|0
 *As you saw, the screen reader hopped straight to the text boxes and the buttons without reading any of the labels.|0
 *To someone like Barbara, this is impossible to interpret.|4
 *This means the form controls must not be linked within the code!|4
 *Let's have a look at how to fix this!|2
 *Press the play button again and hear what has changed.|1
 *As you heard, linking the form elements to the labels allows the screen reader to understand which box and button belongs to which element.|0
+*Make sure all of your input elements have named id's and all of your label elements have a for attribute pointing to the correct element!|2
 ^Now I can easily navigate this form! Thanks for fixing it.|0
 ^Normally, when I come across forms that I cannot understand, I will find a different site to use offering the same service.|0
 *See how a fix so simple could cost you important customers? Hopefully you'll keep Barbara in mind the next time you are designing a form.|4
 *Thanks for all your help Barbara!|2
-^It's been a pleasure _____. Goodbye!|0
-*This ends the training exercise. Please press CLOSE to exit the application when you are ready.|0
+^It's been a pleasure, Pixelle. Goodbye!|0
+*This ends the training exercise. Please click this bubble to return to the main menu when you are ready.|0

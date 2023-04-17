@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfsai8odktoua"]
+
+[ext_resource type="Script" path="res://full_exercise.gd" id="1_4a807"]
+[ext_resource type="PackedScene" uid="uid://cb5oo8n671bhe" path="res://title_screen.tscn" id="2_qrha7"]
+
+[node name="Full Exercise" type="Node2D"]
+script = ExtResource("1_4a807")
+
+[node name="Title Screen" parent="." instance=ExtResource("2_qrha7")]
+
+[connection signal="button_pressed" from="Title Screen" to="." method="_on_title_screen_button_pressed"]

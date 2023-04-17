@@ -1,3 +1,5 @@
+Label
+Button
 ColorRect
 AnimationPlayer
 Sprite2D
@@ -5,9 +7,7 @@ RichTextLabel
 ReferenceRect
 Container
 TextureRect
-Label
 ItemList
-Button
 CheckBox
 CheckButton
 TextEdit

@@ -77,7 +77,10 @@ func read_form():
 		
 	helper.position = Vector2(249,81)
 	helper.size = Vector2(336,47)
-	DisplayServer.tts_speak("text box", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("text box", voice_id)
+	else:
+		DisplayServer.tts_speak("first name. edit text", voice_id)
 	
 	var t = Timer.new()
 	t.set_wait_time(2)
@@ -87,33 +90,57 @@ func read_form():
 	await t.timeout
 	
 	helper.position = Vector2(249,134)
-	DisplayServer.tts_speak("text box", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("text box", voice_id)
+	else:
+		DisplayServer.tts_speak("surname. edit text", voice_id)
 	
 	t.start()
 	await t.timeout
 	
+	if fixed:
+		helper.position = Vector2(165,216)
+		helper.size = Vector2(203,113)
+		DisplayServer.tts_speak("gender button group", voice_id)
+		
+		t.start()
+		await t.timeout
+	
 	helper.position = Vector2(168,220)
 	helper.size = Vector2(30,30)
-	DisplayServer.tts_speak("radio button", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("radio button", voice_id)
+	else:
+		DisplayServer.tts_speak("male. radio button unselected", voice_id)
+		
 	
 	t.start()
 	await t.timeout
 	
 	helper.position = Vector2(168,257)
-	DisplayServer.tts_speak("radio button", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("radio button", voice_id)
+	else:
+		DisplayServer.tts_speak("female. radio button unselected", voice_id)
 	
 	t.start()
 	await t.timeout
 	
 	helper.position = Vector2(168,294)
-	DisplayServer.tts_speak("radio button", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("radio button", voice_id)
+	else:
+		DisplayServer.tts_speak("other. radio button unselected", voice_id)
 	
 	t.start()
 	await t.timeout
 	
 	helper.position = Vector2(155,350)
 	helper.size = Vector2(112,44)
-	DisplayServer.tts_speak("button", voice_id)
+	if !fixed:
+		DisplayServer.tts_speak("button", voice_id)
+	else:
+		DisplayServer.tts_speak("submit. button", voice_id)
 	
 	t.start()
 	await t.timeout
@@ -121,7 +148,7 @@ func read_form():
 		
 	sr_on = false
 	
-	if script_counter == 59 || script_counter == 65:
+	if script_counter == 59 || script_counter == 66:
 		talk()
 		
 func form_state(is_active):
@@ -140,6 +167,11 @@ func form_state(is_active):
 	other_cb.disabled = !is_active
 	submit.disabled = !is_active
 	
+	fn_box.text = ""
+	sn_box.text = ""
+	male_cb.button_pressed = false
+	female_cb.button_pressed = false
+	other_cb.button_pressed = false
 	
 func talk(line = 0):
 	var penguin_box = penguin_speech.get_node("Message")
@@ -169,16 +201,30 @@ func talk(line = 0):
 	elif script_counter == 64:
 		persona_ani.play("join")
 	elif script_counter == 65:
+		penguin_speech.visible = false
+		video_playing = true
+		var vid = get_node("Task2_Fix")
+		var bg = get_node("fade_bg")
+		bg.visible = true
+		vid.visible = true
+		vid.play()
+		await vid.finished
+		bg.visible = false
+		video_playing = false
+		vid.visible = false
+		fixed = true
+		sr_clicked = false
+	elif script_counter == 66:
 		if !sr_clicked:
 			penguin_speech.visible = false
 			persona_speech.visible = false
 		else:
 			persona_ani.play("leave")
-	elif script_counter == 72:
+	elif script_counter == 73:
 		persona_ani.play("exit")
 	
 	if script_counter != 59 || sr_clicked:
-		if script_counter != 65 || sr_clicked:
+		if script_counter != 66 || sr_clicked:
 			if !line:
 				var msg = msgs[script_counter][0]
 				if msg[0] == "*":
@@ -230,6 +276,8 @@ func silence():
 func _on_Speech_pressed():
 	if task_frozen && script_counter < msgs.size() && tools_opened && !sr_on && !video_playing:
 		talk()
+	elif script_counter == 74:
+		get_tree().change_scene_to_file("res://title_screen.tscn")
 	else:
 		silence()
 		
@@ -263,5 +311,3 @@ func _on_submit_button_pressed():
 		talk(43)
 		script_counter = 44
 		form_state(false)
-		
-		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bu21wp4or7lxt"]
+[gd_scene load_steps=75 format=3 uid="uid://bu21wp4or7lxt"]
 
 [ext_resource type="StyleBox" uid="uid://7uul88qs5s03" path="res://ButtonNormal.tres" id="1"]
 [ext_resource type="StyleBox" path="res://ButtonHover.tres" id="2"]
@@ -378,6 +378,14 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="44"]
 
 [sub_resource type="StyleBoxEmpty" id="43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_321bh"]
+bg_color = Color(0.690196, 0.666667, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="7"]
 bg_color = Color(0.521569, 0.521569, 0.521569, 1)
@@ -811,10 +819,10 @@ anchor_left = -0.0624985
 anchor_top = -0.112501
 anchor_right = -0.0624985
 anchor_bottom = -0.112501
-offset_left = 954.0
-offset_top = 55.0
-offset_right = 986.0
-offset_bottom = 87.0
+offset_left = 956.5
+offset_top = 59.5
+offset_right = 988.5
+offset_bottom = 91.5001
 scale = Vector2(1.25, 1.25)
 theme_override_icons/checked = ExtResource("8_kfn1j")
 theme_override_icons/checked_disabled = ExtResource("8_kfn1j")
@@ -883,6 +891,7 @@ libraries = {
 }
 
 [node name="PersonaSpeech" type="Button" parent="."]
+visible = false
 offset_left = 206.5
 offset_top = 185.0
 offset_right = 538.5
@@ -927,6 +936,7 @@ hframes = 5
 frame = 2
 
 [node name="PenguinSpeech" type="Button" parent="."]
+visible = false
 offset_left = 504.0
 offset_top = 185.0
 offset_right = 836.0
@@ -974,7 +984,7 @@ offset_top = 520.0
 offset_right = 1008.0
 offset_bottom = 576.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_321bh")
 text = "TASK 1 - OBJECT IDENTIFICATION"
 horizontal_alignment = 1
 vertical_alignment = 1
