@@ -4,38 +4,42 @@ var tools_open = false
 var story_open = false
 var cars = []
 var penguin_speech = null
-var penguin_file = "res://assets/script/penguin_lines"
-var penguin_counter = 0
-var penguin_msgs = []
+var persona_speech = null
+var script_file = "res://assets/script/script"
+var script_counter = 0
+var msgs = []
 var task_frozen = true
 var tools = null
+var video_playing = false
 var fixed = false
 var sr_on = false
+var sr_clicked = false
 var tools_opened = true
 var stopped = false
 
 func _ready():
-	load_file(penguin_file)
+	load_file(script_file)
 	
 	cars = [get_node("Car1"),
 			get_node("Car2"),
 			get_node("Car3"),
 			get_node("Car4")]
 	penguin_speech = get_node("PenguinSpeech")
+	persona_speech = get_node("PersonaSpeech")
 	tools = get_node("Tools")
-	talk_penguin()
+	talk()
 
 func load_file(file):
 	var f = FileAccess.open(file, FileAccess.READ)
 	while !f.eof_reached():
 		var split = f.get_line().split("|")
-		penguin_msgs.push_back([split[0],int(split[1])])
+		msgs.push_back([split[0],int(split[1])])
 	f.close()
 
 func _on_ToolsBtn_pressed():
 	
 	if !tools_opened:
-		talk_penguin()
+		talk()
 		tools_opened = true
 	
 	var button = tools.get_node("ToolsBtn")
@@ -95,6 +99,9 @@ func read_cars():
 		var sprite = car.get_node("Sprite2D")
 		var helper = car.get_node("SRHelper")
 		
+		if !sr_clicked:
+			sr_clicked = true
+		
 		if stopped:
 			helper.visible = false
 			sr_on = false
@@ -120,6 +127,8 @@ func read_cars():
 		helper.visible = false
 		
 	sr_on = false
+	if script_counter == 26 || script_counter == 31:
+		talk()
 	
 func spawn_cars():
 	for car in cars:
@@ -145,11 +154,12 @@ func car_pressed(car):
 			btn.disabled = true
 		if sprite.frame % 4 == 0:
 			animation.play("Correct")
-			talk_penguin(4)
+			talk(4)
 			task_frozen = true
+			script_counter = 6
 		else:
 			animation.play("Incorrect")
-			talk_penguin(5)
+			talk(5)
 		await animation.animation_finished
 		penguin.frame = 0
 		for btn in cars:
@@ -157,45 +167,108 @@ func car_pressed(car):
 		
 		animation.play("RESET")
 	
-func talk_penguin(line = 0):
-	var msg_box = penguin_speech.get_node("Message")
+func talk(line = 0):
+	var penguin_box = penguin_speech.get_node("Message")
 	var penguin = get_node("Penguin")
+	var persona_box = persona_speech.get_node("Message")
+	var persona_ani = get_node("Persona/PersonaAnimator")
 	
-	if !line:
-		msg_box.text = penguin_msgs[penguin_counter][0]
-		penguin.frame = penguin_msgs[penguin_counter][1]
-	else:
-		msg_box.text = penguin_msgs[line][0]
-		penguin.frame = penguin_msgs[line][1]
-	penguin_speech.visible = true
-	
-	if penguin_counter == 3:
+	if script_counter == 3:
 		spawn_cars()
 		task_frozen = false
-		penguin_counter = 6
-	elif penguin_counter == 10:
+	elif script_counter == 9:
+		persona_ani.play("enter")
+	elif script_counter == 16:
 		random_order(1)
-	elif penguin_counter == 18:
+	elif script_counter == 23:
 		tools_opened = false
 		get_node("Tools").visible = true
-	elif penguin_counter == 20:
+	elif script_counter == 25:
 		get_node("Tools/SR_btn").disabled = false
-	elif penguin_counter == 24:
+	elif script_counter == 26:
+		if !sr_clicked:
+			penguin_speech.visible = false
+			persona_speech.visible = false
+	elif script_counter == 29:
+		persona_ani.play("join")
+	elif script_counter == 30:
+		penguin_speech.visible = false
+		video_playing = true
+		var vid = get_node("Task1_Fix")
+		var bg = get_node("fade_bg")
+		bg.visible = true
+		vid.visible = true
+		vid.play()
+		await vid.finished
+		bg.visible = false
+		video_playing = false
+		vid.visible = false
 		fixed = true
+		sr_clicked = false
+	elif script_counter == 31:
+		if !sr_clicked:
+			penguin_speech.visible = false
+			persona_speech.visible = false
+		else:
+			persona_ani.play("leave")
+	elif script_counter == 36:
+		persona_ani.play("exit")
 	
-	if task_frozen:
-		penguin_counter += 1
+	if script_counter != 26 || sr_clicked:
+		if script_counter != 31 || sr_clicked:
+			if !line:
+				var msg = msgs[script_counter][0]
+				if msg[0] == "*":
+					persona_speech.visible = false
+					msg = msg.right(msg.length()-1)
+					penguin_box.text = msg
+					penguin.frame = msgs[script_counter][1]
+					penguin_speech.visible = true
+				elif msg[0] == "^":
+					penguin_speech.visible = false
+					msg = msg.right(msg.length()-1)
+					persona_box.text = msg
+					persona_speech.visible = true
+				else:
+					msg = "Error. Line not assigned to character."
+					penguin_box.text = msg
+					persona_box.text = msg
+					persona_speech.visible = true
+					penguin_speech.visible = true
+			else:
+				var msg = msgs[line][0]
+				if msg[0] == "*":
+					persona_speech.visible = false
+					msg = msg.right(msg.length()-1)
+					penguin_box.text = msg
+					penguin.frame = msgs[line][1]
+					penguin_speech.visible = true
+				elif msg[0] == "^":
+					penguin_speech.visible = false
+					msg = msg.right(msg.length()-1)
+					persona_box.text = msg
+					persona_speech.visible = true
+				else:
+					msg = "Error. Line not assigned to character."
+					penguin_box.text = msg
+					persona_box.text = msg
+					persona_speech.visible = true
+					penguin_speech.visible = true
+			
+			if task_frozen && !video_playing:
+					script_counter += 1
 
-func silence_penguin():
+func silence():
 	penguin_speech.visible = false
-	if task_frozen && tools_opened:
-		penguin_counter += 1
+	persona_speech.visible = false
+	if task_frozen && tools_opened && !sr_on:
+		script_counter += 1
 
-func _on_PenguinSpeech_pressed():
-	if task_frozen && penguin_counter < penguin_msgs.size() && tools_opened:
-		talk_penguin()
+func _on_Speech_pressed():
+	if task_frozen && script_counter < msgs.size() && tools_opened && !video_playing && !sr_on:
+		talk()
 	else:
-		silence_penguin()
+		silence()
 
 func _on_Car1_mouse_entered():
 	if !cars[0].disabled:

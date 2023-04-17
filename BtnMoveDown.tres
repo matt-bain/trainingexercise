@@ -86,5 +86,5 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(954, 55), Vector2(954, 90)]
+"values": [Vector2(951.5, 55), Vector2(951.5, 83.5)]
 }

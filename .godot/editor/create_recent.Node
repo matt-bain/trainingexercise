@@ -1,9 +1,14 @@
+AnimationPlayer
+Sprite2D
+RichTextLabel
 ReferenceRect
+Container
+TextureRect
+Label
 ItemList
 Button
 ColorRect
 CheckBox
 CheckButton
 TextEdit
-Label
 VideoStreamPlayer
